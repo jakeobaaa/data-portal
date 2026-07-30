@@ -37,8 +37,9 @@ is ready to serve.
 Commit to `main` and push. GitHub Pages rebuilds automatically, usually within a minute. HTTPS is
 enforced.
 
-## Related
+## A note on what belongs in this repository
 
-The service this page was built for lives in `D:\03_Scripts\SEILER-TRANSFER`. The wider picture,
-including which services exist and what stage each is at, is in `D:\03_Scripts\SEILER-CONSOLE`,
-whose `STATUS.md` is the program status board.
+This repository is public. Everything committed here, including this file and the commit messages,
+is readable by anyone. Keep internal detail out: no local filesystem paths, no names of internal
+repositories or documents, no customer or program names, and no description of infrastructure that
+is not already public. Internal notes belong in the private repositories, not here.
