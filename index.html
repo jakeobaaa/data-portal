@@ -1,33 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="robots" content="noindex, nofollow">
-    <title>Secure Data Portal</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f4f4f9; }
-        .container { background: white; max-width: 600px; margin: auto; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h1 { color: #333; }
-        p { color: #666; line-height: 1.6; }
-        .btn { display: inline-block; background-color: #007bff; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; }
-        .btn:hover { background-color: #0056b3; }
-        .footer { margin-top: 30px; font-size: 0.8em; color: #999; }
-        .version { font-size: 0.9em; color: #28a745; margin-top: 10px; font-weight: bold; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Seiler Geospatial technical services</title>
+<style>
+  :root {
+    --bg: #f5f7f8;
+    --card: #ffffff;
+    --text: #17222c;
+    --muted: #5a6874;
+    --accent: #14607a;
+    --border: #dde4e9;
+    --shadow: 0 1px 3px rgba(20, 30, 40, .08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121820; --card: #1b232c; --text: #e7edf2; --muted: #98a6b3;
+      --accent: #5fb0cb; --border: #2b3540; --shadow: 0 1px 3px rgba(0,0,0,.4);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.55;
+  }
+  main { max-width: 880px; margin: 0 auto; padding: 2.5rem 1.25rem 3.5rem; }
+  header { border-bottom: 1px solid var(--border); padding-bottom: 1.25rem; margin-bottom: 1.75rem; }
+  header h1 { font-size: 1.6rem; margin: 0 0 .35rem; letter-spacing: -.01em; }
+  header p { margin: 0; color: var(--muted); }
+  h2 { font-size: 1.05rem; margin: 2.25rem 0 .9rem; }
+  .tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: 1fr; } }
+  .tile {
+    display: block; background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; box-shadow: var(--shadow); padding: 1.1rem 1.2rem;
+    text-decoration: none; color: inherit;
+  }
+  a.tile:hover { border-color: var(--accent); }
+  .tile h3 { margin: 0 0 .3rem; font-size: 1.05rem; color: var(--accent); }
+  .tile.soon h3 { color: var(--text); }
+  .tile p { margin: 0; color: var(--muted); font-size: .95rem; }
+  .badge {
+    display: inline-block; font-size: .72rem; color: var(--muted);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: .08rem .55rem; margin-left: .4rem; vertical-align: middle;
+  }
+  .panel {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    box-shadow: var(--shadow); padding: 1.1rem 1.2rem;
+  }
+  .panel p { margin: .5rem 0; }
+  .panel p:first-child { margin-top: 0; }
+  .dl {
+    display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+    padding: .7rem 1.3rem; border-radius: 6px; font-weight: 600; margin: .3rem 0;
+  }
+  .dl:hover { filter: brightness(1.1); }
+  .meta { color: var(--muted); font-size: .88rem; }
+  footer {
+    margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: .9rem;
+  }
+  footer a { color: var(--accent); }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Secure Data Portal</h1>
-        <p>Welcome to the Seiler Mobile Mapping secure gateway.</p>
-        <p>This application establishes a direct, encrypted connection to our processing server for high-speed upload and retrieval.</p>
-        
-        <a href="https://github.com/jakeobaaa/data-portal/releases/download/v7.0.0/SecureFileTransfer_Lite_Setup.exe" class="btn">Download App (v7.0.0)</a>
-        
-        <p class="version">Latest Update: v7.0.0 (Stable)</p>
-         
-        
-        <div class="footer">
-            <p>Windows 10/11 Required. <br> Powered by Tailscale & WireGuard Security.</p>
-        </div>
+<main>
+  <header>
+    <h1>Seiler Geospatial technical services</h1>
+    <p>Tools and services for Seiler Geospatial customers. Pick the one you are here for.</p>
+  </header>
+
+  <h2>Services</h2>
+  <div class="tiles">
+    <a class="tile" href="https://seilerfiletransfer.com">
+      <h3>Secure File Transfer</h3>
+      <p>Send and receive large project datasets through your browser. Nothing to install, and
+      transfers resume where they left off.</p>
+    </a>
+    <a class="tile" href="https://autoplan.spinellajake.com">
+      <h3>AutoPlan Route Planner</h3>
+      <p>Plan full-coverage drive routes for mobile mapping crews, then check the collected data
+      against the plan.</p>
+    </a>
+    <div class="tile soon">
+      <h3>Seiler Assist<span class="badge">coming soon</span></h3>
+      <p>Ask questions about Trimble mobile mapping workflows and get answers with the source
+      document cited.</p>
     </div>
+    <div class="tile soon">
+      <h3>Training Workstations<span class="badge">coming soon</span></h3>
+      <p>A full Trimble Business Center workstation in your browser, preloaded with demo data for
+      training sessions.</p>
+    </div>
+    <div class="tile soon">
+      <h3>Mobile Mapping Workstations<span class="badge">coming soon</span></h3>
+      <p>Hosted archive and processing for C.A.R.E. customers who collect their own data.</p>
+    </div>
+    <div class="tile soon">
+      <h3>Trimble Business Center Macros<span class="badge">coming soon</span></h3>
+      <p>Free macros built from real production work, starting with run to run batch planning.</p>
+    </div>
+  </div>
+
+  <h2>Download</h2>
+  <div class="panel">
+    <p><strong>Secure File Transfer desktop app</strong></p>
+    <a class="dl" href="https://github.com/jakeobaaa/data-portal/releases/download/v7.0.0/SecureFileTransfer_Lite_Setup.exe">Download for Windows (v7.0.0)</a>
+    <p class="meta">Windows 10 or 11. This is the original desktop client. Most customers no longer
+    need it: <a href="https://seilerfiletransfer.com">seilerfiletransfer.com</a> does the same job
+    in a browser with nothing to install. A replacement desktop app is in development and will
+    appear here when it is ready.</p>
+  </div>
+
+  <footer>
+    <p>Jake Spinella, Seiler Geospatial.
+    <a href="mailto:spinellajake@gmail.com">spinellajake@gmail.com</a></p>
+  </footer>
+</main>
 </body>
 </html>
