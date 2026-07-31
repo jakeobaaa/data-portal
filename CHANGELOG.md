@@ -13,6 +13,29 @@ bumps of the desktop app download and are summarised in one entry rather than re
 
 ---
 
+## 2026-07-31
+
+### Fixed
+- Corrected this project's records about the C.A.R.E. programme name. Yesterday's entries described
+  removing it from a service tile as part of a security fix. It was not: Seiler advertises that
+  programme publicly, so naming it exposed nothing. The mistake was made by the program-level audit,
+  which saw an internal-sounding acronym beside an unannounced service and inferred confidentiality
+  without asking the one person who could know. `DP-101` and `DP-001` now say so, and `DP-001` is
+  re-scoped to the genuinely internal strings, which in practice means local Windows paths.
+- The tile still reads "Hosted storage and processing for customers who collect their own data"
+  rather than the original wording naming the programme. It has deliberately not been restored:
+  putting a programme name back onto a public page beside a service that is still concept stage is a
+  marketing decision, not a records correction, and it is waiting on Jake.
+
+### Notes
+- Worth keeping from this: confidentiality is a fact about the business, not a property that can be
+  read off a string in a repository. Customer names, programme names, product names and partner
+  names all look identical from inside a codebase. The cost here was small but ran in the direction
+  nobody notices, since an over-cautious review quietly deleted a piece of real marketing from the
+  front page.
+
+---
+
 ## 2026-07-30
 
 ### Changed
@@ -23,10 +46,12 @@ bumps of the desktop app download and are summarised in one entry rather than re
   service does the same job without installing anything.
 
 ### Security
-- Removed internal detail from the public README and page: local filesystem paths, the names of
-  internal repositories and documents, and a customer program name that appeared in a service
-  description. This repository is public and that material should never have been committed to it.
-  Found by a program-level audit the same day, roughly half an hour after the deployment.
+- Removed internal detail from the public README and page: local filesystem paths and the names of
+  internal repositories and documents. This repository is public and that material should never
+  have been committed to it. Found by a program-level audit the same day, roughly half an hour
+  after the deployment.
+- The same edit also removed the C.A.R.E. programme name from a service tile. That part was a
+  mistake, corrected on 2026-07-31: see the entry for that date. It was never a security fix.
 - The README now states plainly what must not be committed here, so the next person does not have
   to infer it.
 

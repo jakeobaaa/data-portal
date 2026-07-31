@@ -21,11 +21,17 @@ from `DP-101`, following the convention used across the other repositories.
 ## Open
 
 ### DP-001 · OPEN · exposure · internal detail remains in the public git history
-The internal filesystem paths, internal repository names and the customer program name were removed
-from the working tree on 2026-07-30, but this repository is public and every one of those strings is
-still readable in the commit history. An older commit also describes the previous desktop app as
-being powered by a named VPN stack, which is no longer accurate and was never meant as a public
-statement about the infrastructure.
+The internal filesystem paths and internal repository names were removed from the working tree on
+2026-07-30, but this repository is public and both are still readable in the commit history.
+
+Re-scoped on 2026-07-31. This issue originally also covered the C.A.R.E. programme name, on the
+strength of an audit finding that turned out to be wrong: Seiler advertises that programme publicly,
+so nothing was ever exposed by naming it. Only genuinely internal strings remain in scope, which in
+practice means the local Windows paths.
+
+A separate matter, listed here because it lives in the same history: an older commit describes the
+previous desktop app as powered by a named VPN stack. That is an advertising judgement about
+disclosing an infrastructure choice rather than a security question, and it is Jake's call.
 
 Removing it from the tip does not remove it from history. Three options, and the choice is Jake's
 because each has a real cost:
@@ -36,12 +42,15 @@ because each has a real cost:
    download counts on the existing release and breaks the release asset URL that customers hold.
    That URL has 39 downloads against it, so this option needs the release republished and the page
    updated in the same move.
-3. Accept it. The material is low sensitivity: a program name, some Windows paths, and the name of a
-   VPN protocol. Nothing here is a credential, and the audit confirmed all 37 commits are clean of
+3. Accept it. The material is low sensitivity: some local Windows paths, and separately the name of
+   a VPN protocol. Nothing here is a credential, and the audit confirmed all 37 commits are clean of
    secrets.
 
-Recommendation on file: option 3 unless Jake considers the customer program name sensitive, in which
-case option 1. Not a decision to make on his behalf.
+Recommendation on file: option 3. What remains in the history is a handful of local Windows paths,
+which reveal a folder layout and nothing more. The audit confirmed all 37 commits are clean of
+credentials. With the C.A.R.E. name correctly out of scope, the case for rewriting history and
+breaking the release URL that 39 downloads point at is weaker than it was. Not a decision to make on
+Jake's behalf either way.
 
 ### DP-002 · OPEN · quality · the page advertises services that are not ready
 The page shows a tile for hosted mobile mapping workstations, which is concept stage with no code
@@ -57,10 +66,17 @@ advertised today.
 
 ## Fixed
 
-### DP-101 · FIXED · exposure · internal paths and a customer program name were published
+### DP-101 · FIXED · exposure · internal paths were published on the public site
 The rewrite of this page on 2026-07-30 carried internal material onto a public site: local Windows
-paths and internal repository names in the README, and a customer program name in one of the service
-descriptions. It was live for roughly half an hour before a program-level audit caught it.
+paths and internal repository names in the README. It was live for roughly half an hour before a
+program-level audit caught it.
+
+Corrected 2026-07-31. This entry originally also cited the C.A.R.E. programme name as exposed
+material. That was wrong, and the error was the audit's rather than this project's: Seiler
+advertises the programme publicly, so naming it exposed nothing. The removal of that name was not a
+security fix and is tracked separately as `DP-002`. The lesson worth keeping is that confidentiality
+is a fact about the business, not a property that can be read off a string in a repository, and an
+internal-sounding acronym next to an unannounced service is not evidence of anything.
 
 The cause was straightforward and worth recording. The page was written inside a private working
 repository and moved into this public one without anyone re-reading it as a public document. Fixed
