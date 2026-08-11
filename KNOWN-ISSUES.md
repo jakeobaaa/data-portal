@@ -20,6 +20,18 @@ from `DP-101`, following the convention used across the other repositories.
 
 ## Open
 
+### DP-002 · OPEN · exposure · the design-preview branch still publishes superseded content
+The `design-preview` branch exists on the public remote and its tip is fetchable by anyone, so
+content retired from `main` stays live there, including the older wording describing the desktop
+app's VPN stack that `DP-001` treats as a judgement call. A stale branch is easy to forget
+precisely because nobody looks at it.
+
+Deleting the branch is the obvious fix and is deliberately not being done here: this register does
+not delete work somebody else may still want. Jake decides whether the branch has served its
+purpose. If it stays, it should be understood as published, not as a private draft.
+
+Found 2026-08-10 by the fleet security audit.
+
 ### DP-001 · OPEN · exposure · internal detail remains in the public git history
 The internal filesystem paths and internal repository names were removed from the working tree on
 2026-07-30, but this repository is public and both are still readable in the commit history.
@@ -65,6 +77,28 @@ whose existence depends on a third party agreeing to it. Awaiting Jake's decisio
 advertised today.
 
 ## Fixed
+
+### DP-102 · FIXED · exposure · the project's own records were served at the public domain
+Every record file in this repository was being returned to anyone who asked for it by name at the
+vanity domain: `https://spinellajake.com/CLAUDE.md`, `/KNOWN-ISSUES.md`, `/CHANGELOG.md` and
+`/README.md` each answered 200 with the file verbatim. GitHub Pages serves the repository tree as
+the web root, and files without front matter are copied across untouched, so the standing brief
+for this project and this defect register were both published next to the marketing page. The
+`noindex` tag and the `robots.txt` disallow only ask search engines to look away; they do nothing
+about a direct request.
+
+Nothing confidential was in the files, which is why this is an exposure of internal process rather
+than of secrets, and the repository has always been public so none of it was ever private. What
+was wrong is that internal working documents were being presented at the company-facing address.
+
+Fixed 2026-08-10 by adding `_config.yml` with a Jekyll `exclude` list, verified afterwards by
+requesting each path and confirming the site itself still serves. Found by the fleet security
+audit, which had this as its highest-confidence finding.
+
+The wider lesson, recorded because it applies to every file added here: this repository must be
+public for GitHub Pages to serve it, so everything committed is world-readable whether or not it
+is excluded from the built site. Excluding a file hides it from the website, not from the
+internet. Write these records accordingly.
 
 ### DP-101 · FIXED · exposure · internal paths were published on the public site
 The rewrite of this page on 2026-07-30 carried internal material onto a public site: local Windows

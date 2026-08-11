@@ -13,6 +13,24 @@ bumps of the desktop app download and are summarised in one entry rather than re
 
 ---
 
+## 2026-08-10
+
+### Security
+
+**The project's own records are no longer served at the public address (DP-102).** A fleet-wide
+security audit found that `CLAUDE.md`, `KNOWN-ISSUES.md`, `CHANGELOG.md` and `README.md` were each
+returning the file verbatim to anyone who requested it by name at spinellajake.com, because GitHub
+Pages publishes the repository tree as the web root. A `_config.yml` now excludes them from the
+built site, confirmed afterwards by requesting all four (each returns 404) and the page itself
+(still serves). Nothing confidential was in them, and this repository is public by necessity, so
+the point is that internal working documents should not be presented at the company-facing
+address. The register entry carries the standing consequence: everything committed here is
+world-readable whether the website serves it or not.
+
+**A stale public branch was recorded rather than deleted (DP-002).** The `design-preview` branch
+still publishes superseded content on the public remote. Whether it has served its purpose is
+Jake's call, so it is logged instead of quietly removed.
+
 ## 2026-07-31
 
 ### Fixed
