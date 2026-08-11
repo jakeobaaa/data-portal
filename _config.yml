@@ -1,0 +1,17 @@
+# GitHub Pages build settings for spinellajake.com.
+#
+# This repository must be public, because GitHub Pages only serves a site from a
+# public repository on a free plan. That means every file committed here is
+# world-readable both on GitHub and, unless excluded below, at the vanity domain
+# itself. The project's own records are written for the team, not for visitors,
+# and on 2026-08-10 an audit confirmed all four were being served live at
+# https://spinellajake.com/CLAUDE.md and friends (DP-102).
+#
+# Excluding them stops Jekyll from copying them into the built site. It does NOT
+# make them secret: they remain readable in the public repository, so nothing
+# confidential may be written into them. See KNOWN-ISSUES.md DP-102.
+exclude:
+  - CLAUDE.md
+  - KNOWN-ISSUES.md
+  - CHANGELOG.md
+  - README.md
