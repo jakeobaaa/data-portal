@@ -1,5 +1,7 @@
 # data-portal, project context
 
+FYI for a human reader, this document is for an LLM to read and understand constraints/rules. If I come off condescending or bossy, I'm not talking to you lol sorry
+
 This file is the standing brief for a fresh Claude Code session working in this repository. Read it
 fully before changing anything.
 
