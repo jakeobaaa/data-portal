@@ -20,7 +20,7 @@ from `DP-101`, following the convention used across the other repositories.
 
 ## Open
 
-### DP-002 · OPEN · exposure · the design-preview branch still publishes superseded content
+### DP-003 · OPEN · exposure · the design-preview branch still publishes superseded content
 The `design-preview` branch exists on the public remote and its tip is fetchable by anyone, so
 content retired from `main` stays live there, including the older wording describing the desktop
 app's VPN stack that `DP-001` treats as a judgement call. A stale branch is easy to forget
@@ -31,6 +31,11 @@ not delete work somebody else may still want. Jake decides whether the branch ha
 purpose. If it stays, it should be understood as published, not as a private draft.
 
 Found 2026-08-10 by the fleet security audit.
+
+**Renumbered 2026-08-13.** Filed as DP-002, which was already in use by the
+finding about advertised services. Both were open at once and a reader had no way
+to tell which one a reference meant. Caught by a check that now runs across every
+repository rather than in one of them.
 
 ### DP-001 · OPEN · exposure · internal detail remains in the public git history
 The internal filesystem paths and internal repository names were removed from the working tree on
