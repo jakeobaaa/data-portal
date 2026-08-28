@@ -20,24 +20,23 @@ from `DP-101`, following the convention used across the other repositories.
 
 ## Open
 
-### DP-003 · OPEN · exposure · the design-preview branch still publishes superseded content
-The `design-preview` branch exists on the public remote and its tip is fetchable by anyone, so
-content retired from `main` stays live there, including the older wording describing the desktop
-app's VPN stack that `DP-001` treats as a judgement call. A stale branch is easy to forget
-precisely because nobody looks at it.
+### DP-002 · OPEN · quality · the page advertises services that are not ready
+The page shows a tile for hosted mobile mapping workstations, which is concept stage with no code
+written and is gated on a Trimble approval that has not arrived. It also links the route planner,
+which is deployed and working but has no customers outside Seiler, against this repository's own
+stated rule that a tile linking a service with no customers invites sign ups nobody is ready to
+serve.
 
-Deleting the branch is the obvious fix and is deliberately not being done here: this register does
-not delete work somebody else may still want. Jake decides whether the branch has served its
-purpose. If it stays, it should be understood as published, not as a private draft.
+Both were deliberate at the time and both may be fine: coming soon is an honest label, and the route
+planner URL was already public. Flagged because the page now makes public claims about a service
+whose existence depends on a third party agreeing to it. Awaiting Jake's decision on what should be
+advertised today.
 
-Found 2026-08-10 by the fleet security audit.
+## Accepted
 
-**Renumbered 2026-08-13.** Filed as DP-002, which was already in use by the
-finding about advertised services. Both were open at once and a reader had no way
-to tell which one a reference meant. Caught by a check that now runs across every
-repository rather than in one of them.
+Known, understood, and deliberately not being fixed, with the reason recorded.
 
-### DP-001 · OPEN · exposure · internal detail remains in the public git history
+### DP-001 · ACCEPTED · exposure · internal detail remains in the public git history
 The internal filesystem paths and internal repository names were removed from the working tree on
 2026-07-30, but this repository is public and both are still readable in the commit history.
 
@@ -69,19 +68,40 @@ credentials. With the C.A.R.E. name correctly out of scope, the case for rewriti
 breaking the release URL that 39 downloads point at is weaker than it was. Not a decision to make on
 Jake's behalf either way.
 
-### DP-002 · OPEN · quality · the page advertises services that are not ready
-The page shows a tile for hosted mobile mapping workstations, which is concept stage with no code
-written and is gated on a Trimble approval that has not arrived. It also links the route planner,
-which is deployed and working but has no customers outside Seiler, against this repository's own
-stated rule that a tile linking a service with no customers invites sign ups nobody is ready to
-serve.
-
-Both were deliberate at the time and both may be fine: coming soon is an honest label, and the route
-planner URL was already public. Flagged because the page now makes public claims about a service
-whose existence depends on a third party agreeing to it. Awaiting Jake's decision on what should be
-advertised today.
+Accepted 2026-08-27, decided by the owner. What the history exposes is
+reconnaissance value only: file layout and internal project names, with no
+credentials, which was verified by sweep. The repository must remain public for
+the site to serve, and rewriting published history is a disruption out of
+proportion to a map an attacker could largely infer anyway. What would reopen
+this: any credential or customer reference being found in the history, at which
+point the answer becomes a rewrite rather than an acceptance.
 
 ## Fixed
+
+### DP-003 · FIXED · exposure · the design-preview branch still publishes superseded content
+The `design-preview` branch exists on the public remote and its tip is fetchable by anyone, so
+content retired from `main` stays live there, including the older wording describing the desktop
+app's VPN stack that `DP-001` treats as a judgement call. A stale branch is easy to forget
+precisely because nobody looks at it.
+
+Deleting the branch is the obvious fix and is deliberately not being done here: this register does
+not delete work somebody else may still want. Jake decides whether the branch has served its
+purpose. If it stays, it should be understood as published, not as a private draft.
+
+Found 2026-08-10 by the fleet security audit.
+
+**Renumbered 2026-08-13.** Filed as DP-002, which was already in use by the
+finding about advertised services. Both were open at once and a reader had no way
+to tell which one a reference meant. Caught by a check that now runs across every
+repository rather than in one of them.
+
+Fixed 2026-08-27. The branch was preserved on a private remote and then deleted
+from the public repository by the owner, so nothing was lost. Verified gone the
+same night without credentials: the branch list returns only main, and the
+branch endpoint returns not-found. An earlier check had wrongly cleared this
+finding by examining a private mirror; the verification that counts is the
+unauthenticated one, and that is the one recorded here.
+
 
 ### DP-102 · FIXED · exposure · the project's own records were served at the public domain
 Every record file in this repository was being returned to anyone who asked for it by name at the
