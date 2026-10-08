@@ -13,6 +13,18 @@ bumps of the desktop app download and are summarised in one entry rather than re
 
 ---
 
+## 2026-08-27
+
+### Security
+
+**A stale preview branch was removed from the public repository (DP-003).** It still served an
+old draft of the site with wording the live site no longer uses. It was kept on a private copy
+first, so nothing was lost, and its absence from the public repository was checked without
+credentials. Old internal detail in the repository's history was reviewed and accepted as it
+stands (DP-001); the register records the reason and what would reopen it.
+
+---
+
 ## 2026-08-10
 
 ### Security
